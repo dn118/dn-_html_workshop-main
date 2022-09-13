@@ -5,8 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>html.workshop</title>
+<script>
+    function showPosition() {
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
+                document.getElementById("result").innerHTML = positionInfo;
+            });
+        } else {
+            alert("Sorry, your browser does not support HTML5 geolocation.");
+        }
+    }
+</script>
 </head>
+
+
 <body>
+        
+    
     <form action="/action_page.php">
         <label for="fname">ID:</label><br>
         <input type="text" id="fname" name="fname" value="John"><br>
@@ -17,7 +33,15 @@
         <label for="fname">name:</label><br>
         <input type="text" id="fname" name="fname" value="kj"><br>
         <input type="submit" value="Submit">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/DVRQoVRzMIY"
+         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+          clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          
         </form>
+        <div id="result">
+            <!--Position information will be inserted here-->
+        </div>
+        <button type="button" onclick="showPosition();">Show Position</button>
     
 </body>
 </html>
